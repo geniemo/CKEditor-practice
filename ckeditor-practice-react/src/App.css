@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  margin: 0px;
+
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1290px) {
+  .App {
+    width: 1280px;
+  }
+}
+
+@media (max-width: 1290px) {
+  .App {
+    width: 90vw;
+  }
+}
+
+.Editor {
+  margin-top: 40px;
+}
+
+.Editor .title-wrapper {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+.Editor .input-title {
+  width: 100%;
+  height: 40px;
+  resize: none;
+
+  border: none;
+  /* 포커스 됐을 때 아웃라인 없애기 */
+  outline: 0 none;
+
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 30px;
+  color: #202020;
+
+  /* 텍스트 줄 사이 거리 */
+  line-height: 40px;
+  /* 컨텐츠가 너무 커서 요소에 담기기 힘들 때 숨김 */
+  overflow: hidden;
+}
+
+.ck-editor__editable {
+  min-height: 200px !important;
+}
