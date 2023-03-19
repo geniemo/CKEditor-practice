@@ -21,6 +21,7 @@ public class PostService {
 
     private final PostRepository postRepository;
 
+    @Transactional
     public Message uploadPost(String title, String content) {
         Post newPost = Post.builder()
                 .title(title)
