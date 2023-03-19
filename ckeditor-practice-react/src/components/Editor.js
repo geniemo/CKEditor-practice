@@ -1,17 +1,36 @@
 import React from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { Base64UploadAdapter } from "@ckeditor/ckeditor5-upload";
+import axios from "axios";
 
 const Editor = () => {
-  ClassicEditor.create(document.querySelector("#editor"), {
-    plugins: [Base64UploadAdapter /* ... */],
-    toolbar: [
-      /* ... */
-    ],
-  })
-    .then(/* ... */)
-    .catch(/* ... */);
+  const customUploadAdapter = (loader) => {
+    return {
+      upload() {
+        return new Promise((resolve, reject) => {
+          const formData = new FormData();
+          loader.file.then((file) => {
+            formData.append("file", file);
+
+            axios
+              .post("http://localhost:8080/api/v0/file/upload", formData)
+              .then((res) => {
+                resolve({
+                  default: res.data.data.uri,
+                });
+              })
+              .catch((err) => reject(err));
+          });
+        });
+      },
+    };
+  };
+
+  function uploadPlugin(editor) {
+    editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+      return customUploadAdapter(loader);
+    };
+  }
 
   return (
     <div className="Editor">
@@ -24,7 +43,7 @@ const Editor = () => {
         <CKEditor
           editor={ClassicEditor}
           data=""
-          config={{ plugins: [Base64UploadAdapter] }}
+          config={{ extraPlugins: [uploadPlugin] }}
           onReady={(editor) => {
             // You can store the "editor" and use when it is needed.
             console.log("Editor is ready to use!", editor);
