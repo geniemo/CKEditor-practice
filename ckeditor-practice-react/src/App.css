@@ -65,3 +65,41 @@ body {
 .ck-editor__editable {
   min-height: 200px !important;
 }
+
+.control-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.control-box .cancel-btn-wrapper {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.control-box .submit-btn-wrapper {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.MyButton {
+  cursor: pointer;
+  
+  min-width: 90px;
+  border: none;
+  border-radius: 15px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-size: 18px;
+
+  white-space: nowrap;
+}
+
+.MyButton_black {
+  background-color: black;
+  color: white;
+}
