@@ -1,7 +1,9 @@
-const Home = () => {
+import PostList from "../components/PostList";
+
+const Home = ({ posts }) => {
   return (
     <div className="Home">
-      <h1>Home</h1>
+      <PostList posts={posts} />
     </div>
   );
 };
