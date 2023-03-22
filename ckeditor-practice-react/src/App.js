@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import Home from "./pages/Home";
 import New from "./pages/New";
-import PostDetail from "./components/PostDetail";
+import PostDetail from "./pages/PostDetail";
 
 export const PostStateContext = React.createContext();
 
