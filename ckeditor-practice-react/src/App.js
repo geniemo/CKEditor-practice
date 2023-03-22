@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import Home from "./pages/Home";
 import New from "./pages/New";
+import PostDetail from "./components/PostDetail";
+
+export const PostStateContext = React.createContext();
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -13,14 +16,17 @@ function App() {
     });
   }, []);
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home posts={posts} />} />
-          <Route path="/new" element={<New />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <PostStateContext.Provider value={posts}>
+      <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:id" element={<PostDetail />} />
+            <Route path="/new" element={<New />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </PostStateContext.Provider>
   );
 }
 

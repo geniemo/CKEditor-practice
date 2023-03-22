@@ -132,6 +132,8 @@ body {
 
   display: flex;
   justify-content: space-between;
+
+  cursor: pointer;
 }
 
 .PostItem .thumbnail-wrapper {

@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { PostStateContext } from "../App";
 import PostList from "../components/PostList";
 
-const Home = ({ posts }) => {
+const Home = () => {
+  const posts = useContext(PostStateContext);
   return (
     <div className="Home">
       <PostList posts={posts} />
