@@ -154,3 +154,22 @@ body {
   font-weight: bold;
   font-size: 20px;
 }
+
+.PostDetail {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.PostDetail .header {
+  width: 80%;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.PostDetail .content {
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+}
